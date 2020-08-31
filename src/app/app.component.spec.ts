@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'untitled-ui'`, () => {
+  it(`should have as title 'dataset-archive'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('untitled-ui');
+    expect(app.title).toEqual('dataset-archive');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('untitled-ui app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('dataset-archive app is running!');
   });
 });
