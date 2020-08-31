@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "untitled-ui": {
+    "dataset-archive": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/untitled-ui",
+            "outputPath": "dist/dataset-archive",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,19 +67,19 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "untitled-ui:build",
+            "browserTarget": "dataset-archive:build",
             "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "untitled-ui:build:production"
+              "browserTarget": "dataset-archive:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "untitled-ui:build"
+            "browserTarget": "dataset-archive:build"
           }
         },
         "test": {
@@ -116,11 +116,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "untitled-ui:serve"
+            "devServerTarget": "dataset-archive:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "untitled-ui:serve:production"
+              "devServerTarget": "dataset-archive:serve:production"
             }
           }
         },
@@ -128,7 +128,7 @@
           "builder": "@jefiozie/ngx-aws-deploy:deploy",
           "options": {
             "region": "us-east-2",
-            "bucket": "untitled-ui",
+            "bucket": "dataset-archive",
             "secretAccessKey": "urbrncBtVFhREElZnVVgCSRwo0+cR24w5a755A/W",
             "accessKeyId": "AKIAJJ4ARPU7G2LEONSQ"
           }
@@ -136,5 +136,5 @@
       }
     }
   },
-  "defaultProject": "untitled-ui"
+  "defaultProject": "dataset-archive"
 }
