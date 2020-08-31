@@ -1,6 +1,11 @@
 {
     "/api": {
-        "target": "http://3.134.113.210:8080",
+        "target": "http://3.23.130.248:8080",
+        "secure": false,
+        "logLevel": "debug"
+    },
+    "/download": {
+        "target": "https://dataset-entries-repo.s3.us-east-2.amazonaws.com/",
         "secure": false,
         "logLevel": "debug"
     }

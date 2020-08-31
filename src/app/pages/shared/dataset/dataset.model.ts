@@ -7,8 +7,8 @@ export class Dataset {
     public description: string;
     public tags: string[];
     public contributionQuestion: string;
-    public downloadLink: string;
 
+    public downloadLink?: string;
     public datasetFile?: File;
     public creationDate?: Date;
     public updateDate?: Date;
@@ -23,7 +23,6 @@ export class Dataset {
         tags: string[], 
         contributionQuestion: string, 
         updateDate: Date,
-        downloadLink?: string,
         datasetFile?: File
         ){
             this.id = id;
@@ -35,7 +34,6 @@ export class Dataset {
             this.contributionQuestion = contributionQuestion;
             this.updateDate = updateDate;
             this.datasetFile = datasetFile;
-            this.downloadLink = downloadLink;
         }
 
 }

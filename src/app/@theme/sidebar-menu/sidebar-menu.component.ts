@@ -1,7 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { NbMenuItem, NbMenuService } from '@nebular/theme';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { NbMenuItem } from '@nebular/theme';
 
 @Component({
   selector: 'app-sidebar-menu',

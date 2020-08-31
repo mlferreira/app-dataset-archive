@@ -2,5 +2,6 @@ export class Contributor {
     public id: number;
     public username: string;
     public email: string;
-    public roles: string[];
+    public password?: string;
+    public roles?: string[];
 }

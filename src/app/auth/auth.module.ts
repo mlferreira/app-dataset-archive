@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { NbAuthModule} from '@nebular/auth';
@@ -17,14 +17,14 @@ import {
 import { AuthBlockComponent } from './auth-block/auth-block.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RegisterComponent } from './register/register.component';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptorService } from './auth-interceptor.service';
+import { RegisterService } from './register/register.service';
 
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     NbAlertModule,
     NbIconModule,
@@ -42,6 +42,7 @@ import { AuthInterceptorService } from './auth-interceptor.service';
     RegisterComponent,
   ],
   providers: [
+    RegisterService
   ]
 })
 export class NgxAuthModule {

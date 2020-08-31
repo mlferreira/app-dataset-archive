@@ -10,12 +10,10 @@ export class Entry {
     public tags: string[];
     public contributionAnswer: string;
     public dataset: Dataset; 
-    public downloadLink?: string;
     public file?: File;
     public creationDate?: Date;
     public updateDate?: Date;
     public contributor?: Contributor;
-    
 
 
     constructor (
@@ -27,7 +25,6 @@ export class Entry {
         tags: string[], 
         contributionAnswer: string, 
         updateDate: Date,
-        downloadLink: string
         ){
             this.id = id;
             this.name = name;
@@ -37,7 +34,6 @@ export class Entry {
             this.tags = tags;
             this.contributionAnswer = contributionAnswer;
             this.updateDate = updateDate;
-            this.downloadLink = downloadLink
         }
 
 }

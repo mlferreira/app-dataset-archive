@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Dataset } from '../dataset.model';
 import { NbDialogService } from '@nebular/theme';
 import { CreateEntryModalComponent } from '../../entry/create-entry-modal/create-entry-modal.component';
+import { DatasetService } from '../dataset.service';
 
 @Component({
   selector: 'app-dataset-detail',
@@ -15,7 +16,8 @@ export class DatasetDetailComponent implements  OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private dialogService: NbDialogService
+    private dialogService: NbDialogService,
+    private datasetService: DatasetService
   ){}
 
   ngOnInit(): void {
@@ -30,6 +32,16 @@ export class DatasetDetailComponent implements  OnInit {
         datasetId: this.dataset.id
       }
     });
+  }
+
+  downloadDataset() {
+    console.log(this.dataset.downloadLink)
+    this.datasetService.downloadDataset(this.dataset.downloadLink).subscribe(
+      (res) => {
+        console.log(res)
+      }
+    );
+    console.log(this.dataset.downloadLink)
   }
 
 }

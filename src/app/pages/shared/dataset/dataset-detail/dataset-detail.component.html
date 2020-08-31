@@ -20,7 +20,7 @@
     <nb-card-footer>
       <div class="row">
         <div class="col-md-3">
-          <button nbButton status='success'>Download</button>
+          <button nbButton status='success' (click)="downloadDataset()" >Download</button>
         </div>
         <div class="col-md-3">
           <button nbButton status='primary' (click)="openContributeModal()">Contribute</button>

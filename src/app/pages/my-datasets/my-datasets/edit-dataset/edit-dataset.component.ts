@@ -75,7 +75,6 @@ export class EditDatasetComponent implements OnInit {
   }
 
   submitForm() {
-
     this.dataset = this.form.value;
     this.dataset.tags = this.tags;
 
@@ -85,36 +84,9 @@ export class EditDatasetComponent implements OnInit {
     }
 
     this.datasetService.putDataset(this.dataset).subscribe(
-      (res) => {
-        console.log(res);
-      }
+      () => this.router.navigate(['pages/my-datasets/my-datasets']),
+      error => console.log(error)
     );
-
-    // console.log(this.dataset)
-    // console.log(JSON.stringify(this.dataset.tags))
-
-    // var formData = new FormData();
-
-    // formData.append('name', this.dataset.name);
-    // formData.append('alias', this.dataset.alias);
-    // formData.append('description', this.dataset.description);
-    // formData.append('contributionQuestion', this.dataset.contributionQuestion);
-    // formData.append('datasetFile', this.dataset.datasetFile);
-    // this.dataset.tags.forEach(tag => formData.append('tags', tag));
-
-    // if (this.isDraft) {
-    //   formData.append('status', 'DRAFT');
-    //   this.isDraft = false;
-      
-    // } else {
-    //   formData.append('status', this.dataset.status);
-    // }
-
-    // this.datasetService.postDataset(formData).subscribe(
-    //   () => this.router.navigate(['pages/search-dataset']),
-    //   error => console.log(error)
-    // );
-
   }
 
 }
