@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <nb-card accent="danger">
+        <nb-card-header>Create New Dataset</nb-card-header>
+        <nb-card-body>
+          <form [formGroup]="form" (ngSubmit)="submitForm()"> 
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="inputDatasetname" class="label">Name*</label>
+                  <input type="text" formControlName="name" nbInput fullWidth id="inputDatasetName" placeholder="My Dataset name">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="inputDatasetAlias" class="label">Alias</label>
+                  <input type="text" formControlName="alias" nbInput fullWidth id="inputDatasetAlias" placeholder="Unique Alias for URL">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="inputDescription" class="label">Description</label>
+                  <textarea formControlName="description" fullWidth nbInput placeholder="My dataset description"></textarea>
+                </div>
+              </div>
+  
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="inputContributionQuestion" class="label">Contribution Question</label>
+                  <textarea formControlName="contributionQuestion" fullWidth nbInput placeholder="Requirements to Fullfil the Contribution"></textarea>
+                </div>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col-sm-6">
+                <label for="inputContributionQuestion" class="label">Manage Tags</label> <br>
+                <button type="button" nbButton (click)="openAddTag()">Add Tags</button>
+              </div>
+              <div class="col-sm-2">
+                <label for="inputContributionQuestion" class="label">Select File</label> <br>
+                
+                <button type="button" (click)="fileInput.click()" nbButton>Upload
+                  <input #fileInput type="file" (change)="inputFileChange($event)" style="display:none;" /> 
+                </button>
+                
+              </div>
+              <div class="col-sm-4">
+                <label for="inputContributionQuestion" class="label">Selected File</label> <br>
+                <h6 *ngIf="selectedFileName !== ''; else noFileSelected" class="text-hint">{{selectedFileName}}</h6>
+                <ng-template #noFileSelected>
+                  <h6 class="text-danger">No dataset file selected</h6>
+                </ng-template>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+              <div class="col-md-6">
+                <label for="submitDataset" class="label">Contributions:</label>
+                <br>
+                <div class="form-group">
+                  <nb-select  selected="OPEN" formControlName="status">
+                    <nb-option value="OPEN">Allow contributions</nb-option>
+                    <nb-option value="CLOSED">Forbid contributions</nb-option>
+                  </nb-select>     
+                </div>         
+              </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+              <div class="col-md-3">
+                <button type="submit" nbButton status="success">Publish Dataset</button>
+              </div>
+              <div class="col-md-3">
+                <button type="submit" (click)="setToDraft()" nbButton status="primary">Save as draft</button>
+              </div>
+            </div>
+          </form>
+        </nb-card-body>
+    </nb-card>
+    </div>
+  </div>
+</div>

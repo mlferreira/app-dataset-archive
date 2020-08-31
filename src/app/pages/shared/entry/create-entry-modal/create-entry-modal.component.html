@@ -1,0 +1,94 @@
+<nb-card>
+    <nb-card-header>{{ title }}</nb-card-header>
+    <nb-card-body>
+
+        <div class="row">
+            <div class="col-md-12">
+                <label class="label">Contribution Question</label>
+                <p>{{contributionQuestion}}</p>
+            </div>
+        </div>
+        <br>
+        <form id="entryForm" [formGroup]="form" (ngSubmit)="submitForm()">
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="inputName" class="label">Answer</label>
+                    <textarea formControlName="contributionAnswer" fullWidth nbInput placeholder="Contribution Answer"></textarea>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputName" class="label">Description</label>
+                    <textarea formControlName="description" fullWidth nbInput placeholder="Contribution Description"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="inputName" class="label">Name</label>
+                    <input formControlName="name"  type="text" placeholder="Contribution Name" nbInput fullWidth id="inputName">
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="inputContributionQuestion" class="label">Selected File</label> <br>
+                    <h6 *ngIf="selectedFileName !== ''; else noFileSelected" class="text-hint">{{selectedFileName}}</h6>
+                    <ng-template #noFileSelected>
+                      <h6 class="text-danger">No dataset file selected</h6>
+                    </ng-template>
+                  </div>
+                <div class="col-sm-2">
+                    <label for="inputContributionQuestion" class="label">Select File</label> <br>
+                    
+                    <button type="button" (click)="fileInput.click()" nbButton>Upload
+                        <input #fileInput type="file" (change)="inputFileChange($event)" style="display:none;" /> 
+                    </button>
+                    
+                  </div>
+            </div>
+
+
+            <hr>
+            
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="inputName" class="label">Tags</label>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <input #tagName type="text" nbInput placeholder="Tag Name">                        
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-secondary float-right" type="button" nbButton (click)="addTag(tagName.value)">Add</button>
+                            </div>
+                        </div> 
+                </div>
+                <div class="col-sm-6">
+                    <label for="inputName" class="label">Added Tags</label>
+
+                    <div  *ngIf="tags.length > 0; else tagListPlaceholder" >
+                        <span *ngFor="let tag of tags"  
+                            class="badge badge-pill badge-primary"
+                            style="cursor: pointer;"
+                            (click)="removeTag(tag)">{{tag}}</span>
+                    </div>
+
+                    <ng-template #tagListPlaceholder>
+                        <h6 class="text-danger">Please, add a tag.</h6>
+                    </ng-template>
+                </div>
+            </div>
+        </form>
+
+    </nb-card-body>
+    <nb-card-footer>
+        <div class="row">
+            <div class="col-md-3">
+              <button type="submit" form="entryForm" nbButton status="success">
+                  Contribute
+                </button>
+            </div>
+            <div class="col-md-3">
+              <button nbButton type="button" (click)="dismiss()" status="danger">Cancel</button>
+            </div>
+          </div>
+    </nb-card-footer>
+</nb-card>
+  

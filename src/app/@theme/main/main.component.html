@@ -1,0 +1,27 @@
+<nb-layout>
+    <nb-layout-header subfooter>
+        <div class="logo-container">
+          <a (click)="toggle()" class="sidebar-toggle">
+            <nb-icon icon="menu-2-outline"></nb-icon>
+            <nb-icon icon="heart" status="danger"></nb-icon>
+          </a>
+        </div>
+        <div class="container text-right">
+          <div class="justify-right">
+            <nb-user [name]="user?.sub"></nb-user>
+          </div>
+        </div>
+      </nb-layout-header>
+    
+    <nb-sidebar *ngIf="(isAuthenticated | async) === true">
+        <app-sidebar-menu></app-sidebar-menu>
+    </nb-sidebar>
+
+    <nb-layout-column>
+      <router-outlet></router-outlet>
+    </nb-layout-column>
+    <nb-layout-footer fixed>
+      UFOP - Universidade Federal de Ouro Preto - Copyright 2020
+  </nb-layout-footer>
+</nb-layout>
+  

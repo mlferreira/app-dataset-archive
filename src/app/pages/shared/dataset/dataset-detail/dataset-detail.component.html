@@ -1,0 +1,30 @@
+<nb-card accent="danger">
+    <nb-card-header>
+      {{dataset.name}}
+    </nb-card-header>
+    <nb-card-body>
+      <h5 class="grid-h">Description</h5>
+      <div class="row show-grid">
+        <div class="col-md-12">
+          <div>{{dataset.description}}</div>
+        </div>
+      </div>
+      <hr>
+      <h5 class="grid-h">Tags</h5>
+      <div class="row show-grid">
+        <div class="col-md-12">
+        <b *ngFor="let tag of dataset.tags"> <span class="badge badge-pill badge-primary">{{ tag }}</span></b>
+        </div>
+      </div>
+    </nb-card-body>
+    <nb-card-footer>
+      <div class="row">
+        <div class="col-md-3">
+          <button nbButton status='success'>Download</button>
+        </div>
+        <div class="col-md-3">
+          <button nbButton status='primary' (click)="openContributeModal()">Contribute</button>
+        </div>
+      </div>
+    </nb-card-footer>
+</nb-card>

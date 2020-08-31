@@ -1,0 +1,73 @@
+<nb-card>
+    <nb-card-header>{{ title }}</nb-card-header>
+    <nb-card-body>
+
+    <div class="row">
+        <div class="col-md-12">
+            <label class="label">Contribution Question</label>
+            <p>{{entry.dataset.contributionQuestion}}</p>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="inputName" class="label">Answer</label>
+            <textarea 
+                fullWidth nbInput 
+                disabled
+            >{{entry.contributionAnswer}}</textarea>
+        </div>
+        <div class="col-md-6">
+            <label for="inputName" class="label">Description</label>
+            <textarea 
+                fullWidth nbInput
+                disabled
+            >{{entry.description}}</textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <label for="inputName" class="label">Name</label>
+            <input 
+                type="text" 
+                nbInput fullWidth
+                disabled
+                value="{{entry.name}}">
+        </div>
+
+        <div class="col-sm-2">
+            <label class="label">Dowload File</label> <br>
+            
+            <button type="button" (click)="fileInput.click()" nbButton>Download
+                <input #fileInput type="file" style="display:none;" /> 
+            </button>
+            
+        </div>
+    </div>
+
+    <hr>
+
+    </nb-card-body>
+    <nb-card-footer>
+        <div class="row">
+            <div class="col-md-2">
+              <button (click)="approveContribution()" nbButton status="success">
+                  Approve
+                </button>
+            </div>
+            <div class="col-md-2">
+                <button (click)="rejectContribution()" nbButton status="primary">
+                    Reject
+                </button>
+              </div>
+
+              <div class=" col-md-8 container text-right">
+                <div class="justify-right">
+                    <button nbButton type="button" (click)="dismiss()" status="danger">Cancel</button>
+                </div>
+              </div>
+          </div>
+    </nb-card-footer>
+</nb-card>
+  

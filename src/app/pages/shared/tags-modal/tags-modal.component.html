@@ -1,0 +1,54 @@
+<nb-card size="medium">
+    <nb-card-header>{{ title }}</nb-card-header>
+    <nb-card-body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <input #tagName type="text" nbInput placeholder="Tag Name">                        
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-secondary float-right" type="button" nbButton (click)="add(tagName.value)">Add</button>
+                        </div>
+                    </div>
+                </div>            
+                <div class="col-sm-5">
+
+                    <div *ngIf="tags.length > 0; else tagListPlaceholder" >
+                        <nb-list>
+                                <nb-list-item *ngFor="let tag of tags">
+                                    <div class="col">
+                                        {{ tag }}
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <nb-icon status="danger" style="cursor: pointer;" (click)="removeTag(tag)" icon="close-circle-outline">
+                                        </nb-icon></div>
+                                </nb-list-item>
+                        </nb-list>
+                    </div>
+
+                    <ng-template #tagListPlaceholder>
+                        <nb-list-item>
+                            <div class="col">
+                                Please Add a Tag
+                            </div>
+                        </nb-list-item>
+                    </ng-template>
+
+                </div>
+            </div>
+        </div>
+    </nb-card-body>
+    <nb-card-footer>
+        <div class="row">
+            <div class="col-md-6">
+                <button nbButton (click)="addTags()" status="success">Save Tags</button>                
+            </div>
+            <div class="col-md-6">
+                <button nbButton (click)="dismiss()" status="danger">Cancel</button>                
+            </div>
+        </div>
+    </nb-card-footer>
+</nb-card>
+  
