@@ -99,7 +99,7 @@ import { EditDatasetComponent } from './pages/my-datasets/my-datasets/edit-datas
             class: NbAuthJWTToken,
             key: 'token'
           },
-          baseEndpoint: 'http://3.134.113.210:8080',
+          baseEndpoint: 'http://3.23.130.248:8080',
           login: {
             endpoint: '/api/user/login',
             method: 'post',
