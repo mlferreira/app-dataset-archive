@@ -36,11 +36,12 @@ export class DatasetDetailComponent implements  OnInit {
 
   downloadDataset() {
     console.log(this.dataset.downloadLink)
-    this.datasetService.downloadDataset(this.dataset.downloadLink).subscribe(
-      (res) => {
-        console.log(res)
-      }
-    );
+    this.datasetService.downloadDataset(this.dataset.downloadLink)
+    // .subscribe(
+      // (res) => {
+        // console.log(res)
+      // }
+    // );
     console.log(this.dataset.downloadLink)
   }
 

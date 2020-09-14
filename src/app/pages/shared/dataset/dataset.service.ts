@@ -70,8 +70,13 @@ export class DatasetService implements OnInit {
   }
 
   downloadDataset(url: string) {
-    url = url.replace('https://dataset-entries.s3.us-east-2.amazonaws.com/', '');
-    return this.http.get(this.donwloadDatasetsApi + url, {responseType: 'blob'});
+  window.open(
+    url,
+    '_blank' // <- This is what makes it open in a new window.
+  );
+    // window.location.assign('url');
+    // url = url.replace('https://dataset-archive-repo.s3.us-east-2.amazonaws.com/', '');
+    // return this.http.get(this.donwloadDatasetsApi + url, {responseType: 'blob'});
   }
 
 
