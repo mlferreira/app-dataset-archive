@@ -123,15 +123,6 @@
               "devServerTarget": "dataset-archive:serve:production"
             }
           }
-        },
-        "deploy": {
-          "builder": "@jefiozie/ngx-aws-deploy:deploy",
-          "options": {
-            "region": "us-east-2",
-            "bucket": "dataset-archive",
-            "secretAccessKey": "urbrncBtVFhREElZnVVgCSRwo0+cR24w5a755A/W",
-            "accessKeyId": "AKIAJJ4ARPU7G2LEONSQ"
-          }
         }
       }
     }
